@@ -13,7 +13,7 @@
 
 @interface PhotosViewController ()
 @property (nonatomic) NSDictionary *responseDictionary;
-
+@property (strong, nonatomic) NSArray *photos;
 @end
 
 @implementation PhotosViewController
@@ -52,12 +52,9 @@
 
     DeatailViewController *destViewController = (DeatailViewController *)segue.destinationViewController;
     NSIndexPath *indexPath = [self.myCustomTableView indexPathForCell:sender];
-    NSString *imagePath = responseDictionary[@"data"][indexPath.row][@"images"][@"standard_resolution"][@"url"];
 
-   // UIImage *image = [UIImage imageNamed:imagePath];
-    destViewController.imageURL = [NSURL URLWithString:imagePath];
-
-}
+    destViewController.photoURL = self.photos[indexPath.row][@"images"][@"low_resolution"][@"url"];
+    destViewController.photoCaption = self.photos[indexPath.row][@"caption"][@"text"];}
 
 
 

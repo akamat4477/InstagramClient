@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeatailViewController : UIViewController
+@interface DeatailViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) NSURL *imageURL;
+@property (strong, nonatomic) NSString *photoURL;
+@property (strong, nonatomic) NSString *photoCaption;
+
+
 @end

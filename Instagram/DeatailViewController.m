@@ -7,6 +7,8 @@
 //
 
 #import "DeatailViewController.h"
+#import "SecCustomView.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DeatailViewController ()
 
@@ -14,15 +16,37 @@
 
 @implementation DeatailViewController
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+   //  SecCustonImageView *cell = [UITableView dequeueReusableCellWithIdentifier:@"anjaneya-sec"];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SecCustomView *cell = [tableView dequeueReusableCellWithIdentifier:@"anjaneya-sec"];
+    
+    NSString *imgURL = self.photoURL;
+    [cell.SecCustonImageView setImageWithURL:[NSURL URLWithString:imgURL]];
+    NSLog(@"tableView is: %@", self.photoURL);
+    return cell;
+}
+
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
