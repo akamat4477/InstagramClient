@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SecCustomView.h
 //  Instagram
 //
 //  Created by anjaneya kamat on 9/14/15.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SecCustomView : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *SecCustonImageView;
 
 @end
-
